@@ -1,62 +1,192 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Clinic</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SRC Dental Clinic</title>
+
   <style>
-    body{
-      font-family: Arial;
+    *{
       margin:0;
-      background:#f4f4f4;
-      text-align:center;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family: Arial, sans-serif;
+      background:#f5f9ff;
+      color:#222;
+      line-height:1.6;
     }
 
     header{
-      background:#0a7cff;
+      background:linear-gradient(135deg,#0a7cff,#00b7ff);
       color:white;
-      padding:30px;
+      padding:80px 20px;
+      text-align:center;
     }
 
-    section{
-      padding:40px;
+    header h1{
+      font-size:48px;
+      margin-bottom:10px;
+    }
+
+    header p{
+      font-size:20px;
+      opacity:0.95;
     }
 
     .btn{
-      background:#0a7cff;
-      color:white;
-      padding:12px 20px;
+      display:inline-block;
+      margin-top:25px;
+      background:white;
+      color:#0a7cff;
+      padding:14px 28px;
       text-decoration:none;
-      border-radius:5px;
+      border-radius:8px;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:#eaf3ff;
+    }
+
+    section{
+      padding:70px 20px;
+      max-width:1100px;
+      margin:auto;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:50px;
+      font-size:36px;
+      color:#0a7cff;
+    }
+
+    .services{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:white;
+      padding:30px;
+      border-radius:15px;
+      box-shadow:0 4px 15px rgba(0,0,0,0.08);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+    }
+
+    .card h3{
+      margin-bottom:15px;
+      color:#0a7cff;
+    }
+
+    .about{
+      text-align:center;
+      font-size:18px;
+      max-width:800px;
+      margin:auto;
+    }
+
+    .contact{
+      text-align:center;
+    }
+
+    .contact p{
+      margin:10px 0;
+      font-size:18px;
     }
 
     footer{
-      background:#222;
+      background:#0d1b2a;
       color:white;
-      padding:15px;
+      text-align:center;
+      padding:20px;
+      margin-top:40px;
+    }
+
+    @media(max-width:768px){
+      header h1{
+        font-size:34px;
+      }
+
+      .section-title{
+        font-size:28px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Welcome to My Clinic</h1>
-  <p>Quality Healthcare for Everyone</p>
-</header>
+  <header>
+    <h1>SRC Dental Clinic</h1>
+    <p>Healthy Smiles. Trusted Care.</p>
 
-<section>
-  <h2>Our Services</h2>
-  <p>General Checkup, Consultation, Emergency Care</p>
+    <a href="tel:+911234567890" class="btn">
+      Book Appointment
+    </a>
+  </header>
 
-  <br>
+  <section>
+    <h2 class="section-title">Our Services</h2>
 
-  <a class="btn" href="tel:+911234567890">
-    Call Now
-  </a>
-</section>
+    <div class="services">
 
-<footer>
-  <p>© 2026 My Clinic</p>
-</footer>
+      <div class="card">
+        <h3>Dental Checkups</h3>
+        <p>Routine examinations and professional cleaning for healthy teeth.</p>
+      </div>
+
+      <div class="card">
+        <h3>Teeth Whitening</h3>
+        <p>Safe and effective whitening treatments for a brighter smile.</p>
+      </div>
+
+      <div class="card">
+        <h3>Braces & Aligners</h3>
+        <p>Modern orthodontic solutions to straighten your teeth comfortably.</p>
+      </div>
+
+      <div class="card">
+        <h3>Root Canal</h3>
+        <p>Painless root canal treatment with advanced dental technology.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">About Us</h2>
+
+    <div class="about">
+      <p>
+        SRC Dental Clinic provides modern dental care with experienced professionals,
+        advanced equipment, and a patient-friendly environment.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Contact Us</h2>
+
+    <div class="contact">
+      <p>📍 Your Clinic Address</p>
+      <p>📞 +91 12345 67890</p>
+      <p>🕒 Mon - Sat : 9 AM to 8 PM</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 SRC Dental Clinic. All Rights Reserved.</p>
+  </footer>
 
 </body>
 </html>
