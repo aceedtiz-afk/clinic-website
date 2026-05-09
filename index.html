@@ -1,218 +1,402 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SRC Dental Clinic</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clinic Website</title>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Inter', sans-serif;
-}
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
 
-body{
-  background:#070707;
-  color:#eaeaea;
-  overflow-x:hidden;
-}
+    body{
+      font-family:'Inter',sans-serif;
+      background:#f8fafc;
+      color:#0f172a;
+      line-height:1.6;
+    }
 
-/* HERO */
-header{
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  background: radial-gradient(circle at top, #1b1b1b, #070707 60%);
-  position:relative;
-}
+    a{
+      text-decoration:none;
+    }
 
-header h1{
-  font-size:58px;
-  font-weight:600;
-  letter-spacing:1px;
-  opacity:0;
-  animation:fadeUp 1.2s forwards;
-}
+    /* NAVBAR */
 
-header p{
-  margin-top:15px;
-  color:#b0b0b0;
-  font-size:18px;
-  opacity:0;
-  animation:fadeUp 1.8s forwards;
-}
+    .navbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 8%;
+      background:white;
+      box-shadow:0 2px 10px rgba(0,0,0,0.05);
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
 
-.btn{
-  margin-top:30px;
-  padding:14px 32px;
-  border:1px solid #333;
-  border-radius:10px;
-  text-decoration:none;
-  color:#fff;
-  background:rgba(255,255,255,0.03);
-  backdrop-filter:blur(10px);
-  transition:0.3s;
-  opacity:0;
-  animation:fadeUp 2.2s forwards;
-}
+    .logo{
+      font-size:24px;
+      font-weight:700;
+      color:#0ea5e9;
+    }
 
-.btn:hover{
-  background:#fff;
-  color:#000;
-  transform:translateY(-2px);
-}
+    .nav-links{
+      display:flex;
+      gap:24px;
+    }
 
-/* SECTIONS */
-section{
-  max-width:1100px;
-  margin:auto;
-  padding:100px 20px;
-  opacity:0;
-  transform:translateY(30px);
-  animation:fadeUp 1.5s forwards;
-}
+    .nav-links a{
+      color:#334155;
+      font-weight:500;
+      transition:0.3s;
+    }
 
-h2{
-  text-align:center;
-  font-size:32px;
-  margin-bottom:50px;
-  color:#ffffff;
-  letter-spacing:1px;
-}
+    .nav-links a:hover{
+      color:#0ea5e9;
+    }
 
-/* SERVICES */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:25px;
-}
+    /* HERO */
 
-.card{
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(255,255,255,0.08);
-  padding:30px;
-  border-radius:16px;
-  backdrop-filter:blur(12px);
-  transition:0.4s;
-}
+    .hero{
+      min-height:90vh;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:60px 8%;
+      gap:40px;
+      flex-wrap:wrap;
+    }
 
-.card:hover{
-  transform:translateY(-8px);
-  border-color:rgba(255,255,255,0.25);
-  box-shadow:0 10px 30px rgba(255,255,255,0.05);
-}
+    .hero-text{
+      flex:1;
+      min-width:300px;
+    }
 
-.card h3{
-  color:#fff;
-  margin-bottom:10px;
-}
+    .hero-text h1{
+      font-size:52px;
+      line-height:1.2;
+      margin-bottom:20px;
+    }
 
-.card p{
-  color:#aaa;
-  font-size:14px;
-}
+    .hero-text span{
+      color:#0ea5e9;
+    }
 
-/* CONTACT */
-.contact{
-  text-align:center;
-  color:#aaa;
-}
+    .hero-text p{
+      font-size:18px;
+      color:#475569;
+      margin-bottom:30px;
+      max-width:550px;
+    }
 
-.contact p{
-  margin:10px 0;
-}
+    .hero-buttons{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+    }
 
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:40px;
-  border-top:1px solid #1f1f1f;
-  color:#666;
-  font-size:13px;
-}
+    .btn{
+      padding:14px 28px;
+      border-radius:12px;
+      font-weight:600;
+      transition:0.3s;
+    }
 
-/* ANIMATION */
-@keyframes fadeUp{
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
+    .btn-primary{
+      background:#0ea5e9;
+      color:white;
+    }
 
-/* smooth scroll */
-html{
-  scroll-behavior:smooth;
-}
-</style>
+    .btn-primary:hover{
+      background:#0284c7;
+    }
+
+    .btn-secondary{
+      border:2px solid #0ea5e9;
+      color:#0ea5e9;
+    }
+
+    .btn-secondary:hover{
+      background:#0ea5e9;
+      color:white;
+    }
+
+    .hero-image{
+      flex:1;
+      min-width:300px;
+    }
+
+    .hero-image img{
+      width:100%;
+      border-radius:24px;
+      box-shadow:0 20px 40px rgba(0,0,0,0.1);
+    }
+
+    /* SERVICES */
+
+    .services{
+      padding:80px 8%;
+      text-align:center;
+    }
+
+    .section-title{
+      font-size:38px;
+      margin-bottom:14px;
+    }
+
+    .section-subtitle{
+      color:#64748b;
+      margin-bottom:50px;
+    }
+
+    .service-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:24px;
+    }
+
+    .service-card{
+      background:white;
+      padding:32px;
+      border-radius:20px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.05);
+      transition:0.3s;
+    }
+
+    .service-card:hover{
+      transform:translateY(-8px);
+    }
+
+    .service-card h3{
+      margin-bottom:12px;
+      color:#0ea5e9;
+    }
+
+    .service-card p{
+      color:#64748b;
+    }
+
+    /* DOCTORS */
+
+    .doctors{
+      padding:80px 8%;
+      background:white;
+      text-align:center;
+    }
+
+    .doctor-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:24px;
+      margin-top:50px;
+    }
+
+    .doctor-card{
+      background:#f8fafc;
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 6px 20px rgba(0,0,0,0.05);
+    }
+
+    .doctor-card img{
+      width:100%;
+      height:280px;
+      object-fit:cover;
+    }
+
+    .doctor-info{
+      padding:20px;
+    }
+
+    .doctor-info h3{
+      margin-bottom:8px;
+    }
+
+    .doctor-info p{
+      color:#64748b;
+    }
+
+    /* CONTACT */
+
+    .contact{
+      padding:80px 8%;
+      text-align:center;
+    }
+
+    .contact-box{
+      background:white;
+      padding:50px;
+      border-radius:24px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.05);
+      max-width:700px;
+      margin:auto;
+    }
+
+    .contact-box h2{
+      margin-bottom:20px;
+    }
+
+    .contact-box p{
+      color:#64748b;
+      margin-bottom:30px;
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:#0f172a;
+      color:white;
+      text-align:center;
+      padding:30px;
+      margin-top:60px;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px){
+
+      .hero-text h1{
+        font-size:38px;
+      }
+
+      .navbar{
+        flex-direction:column;
+        gap:14px;
+      }
+
+      .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-  <h1>SRC Dental Clinic</h1>
-  <p>Modern dentistry with precision, care, and trust.</p>
+  <!-- NAVBAR -->
 
-  <a href="tel:+911234567890" class="btn">
-    Book Appointment
-  </a>
-</header>
+  <nav class="navbar">
+    <div class="logo">CarePlus Clinic</div>
 
-<section>
-  <h2>Our Services</h2>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Services</a>
+      <a href="#">Doctors</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
 
-  <div class="grid">
+  <!-- HERO -->
 
-    <div class="card">
-      <h3>Dental Checkup</h3>
-      <p>Complete oral examination with modern diagnostic tools.</p>
+  <section class="hero">
+
+    <div class="hero-text">
+      <h1>Your Health Is Our <span>Top Priority</span></h1>
+
+      <p>
+        Professional healthcare services with experienced doctors,
+        modern facilities, and compassionate patient care.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#" class="btn btn-primary">Book Appointment</a>
+        <a href="#" class="btn btn-secondary">Call Now</a>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>Teeth Whitening</h3>
-      <p>Advanced whitening for a brighter, confident smile.</p>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=1200&auto=format&fit=crop" alt="Clinic">
     </div>
 
-    <div class="card">
-      <h3>Braces & Aligners</h3>
-      <p>Invisible and traditional orthodontic treatments.</p>
+  </section>
+
+  <!-- SERVICES -->
+
+  <section class="services">
+
+    <h2 class="section-title">Our Services</h2>
+
+    <p class="section-subtitle">
+      Comprehensive healthcare solutions for your family.
+    </p>
+
+    <div class="service-grid">
+
+      <div class="service-card">
+        <h3>General Checkup</h3>
+        <p>Routine health examinations and preventive care.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Emergency Care</h3>
+        <p>Quick and reliable medical assistance when needed.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Laboratory Tests</h3>
+        <p>Accurate diagnostic and pathology services.</p>
+      </div>
+
     </div>
 
-    <div class="card">
-      <h3>Root Canal Therapy</h3>
-      <p>Painless and precise treatment using modern techniques.</p>
+  </section>
+
+  <!-- DOCTORS -->
+
+  <section class="doctors">
+
+    <h2 class="section-title">Meet Our Doctors</h2>
+
+    <div class="doctor-grid">
+
+      <div class="doctor-card">
+        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=800&auto=format&fit=crop" alt="Doctor">
+        <div class="doctor-info">
+          <h3>Dr. John Smith</h3>
+          <p>Cardiologist</p>
+        </div>
+      </div>
+
+      <div class="doctor-card">
+        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=800&auto=format&fit=crop" alt="Doctor">
+        <div class="doctor-info">
+          <h3>Dr. Sarah Lee</h3>
+          <p>Dermatologist</p>
+        </div>
+      </div>
+
     </div>
 
-  </div>
-</section>
+  </section>
 
-<section>
-  <h2>About Clinic</h2>
+  <!-- CONTACT -->
 
-  <div class="contact">
-    <p>SRC Dental Clinic provides high-quality dental care with advanced technology and a patient-first approach.</p>
-  </div>
-</section>
+  <section class="contact">
 
-<section>
-  <h2>Contact</h2>
+    <div class="contact-box">
+      <h2>Book an Appointment</h2>
 
-  <div class="contact">
-    <p>📍 Your Clinic Address</p>
-    <p>📞 +91 12345 67890</p>
-    <p>🕒 Mon - Sat | 9 AM - 8 PM</p>
-  </div>
-</section>
+      <p>
+        Contact us today for expert healthcare consultation and treatment.
+      </p>
 
-<footer>
-  © 2026 SRC Dental Clinic • All Rights Reserved
-</footer>
+      <a href="#" class="btn btn-primary">Contact Clinic</a>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <p>© 2026 CarePlus Clinic. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>
